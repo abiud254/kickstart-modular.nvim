@@ -9,6 +9,9 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 -- vim.opt.relativenumber = true
 
+-- Set title
+vim.opt.title = true
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
@@ -20,8 +23,22 @@ vim.opt.showmode = false
 --  See `:help 'clipboard'`
 vim.opt.clipboard = 'unnamedplus'
 
--- Enable break indent
+-- Set Tab and Indent Behaviour
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.expandtab = true
+vim.opt.smarttab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 vim.opt.breakindent = true
+
+-- Set wrap behaviour
+vim.opt.wrap = true
+vim.opt.linebreak = true
+
+-- Enable termguicolors
+vim.opt.termguicolors = true
 
 -- Save undo history
 vim.opt.undofile = true
