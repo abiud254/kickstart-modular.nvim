@@ -41,13 +41,27 @@ return {
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
 
+      -- Setup for dadbod
+      cmp.setup.filetype({ 'sql' }, {
+        sources = {
+          { name = 'vim-dadboad-completion' },
+          { name = 'buffer' },
+        },
+      })
+
       cmp.setup {
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
           end,
         },
-        completion = { completeopt = 'menu,menuone,noinsert' },
+        window = {
+          completion = {
+            cmp.config.window.bordered(),
+            completeopt = 'menu,menuone,noinsert',
+          },
+          documentation = cmp.config.window.bordered(),
+        },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
@@ -58,7 +72,8 @@ return {
           ['<down>'] = cmp.mapping.select_next_item(),
           -- Select the [p]revious item
           ['<up>'] = cmp.mapping.select_prev_item(),
-
+          -- Abort completion
+          ['<C-e>'] = cmp.mapping.abort(),
           -- Scroll the documentation window [b]ack / [f]orward
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -66,7 +81,7 @@ return {
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<Enter>'] = cmp.mapping.confirm { select = true },
+          ['<CR>'] = cmp.mapping.confirm { select = true },
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines

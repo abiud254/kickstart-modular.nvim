@@ -171,6 +171,7 @@ return {
         cssls = {},
         tailwindcss = {},
         marksman = {},
+        sqls = {},
         --
         lua_ls = {
           -- cmd = {...},
