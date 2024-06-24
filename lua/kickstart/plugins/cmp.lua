@@ -41,14 +41,6 @@ return {
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
 
-      -- Setup for dadbod
-      cmp.setup.filetype({ 'sql' }, {
-        sources = {
-          { name = 'vim-dadboad-completion' },
-          { name = 'buffer' },
-        },
-      })
-
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -120,6 +112,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'vim-dadbod-completion' },
         },
       }
     end,
